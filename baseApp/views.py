@@ -1,0 +1,3 @@
+"""
+baseApp views.
+"""
