@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-CREATED_APPS = [
+LOCAL_APPS = [
     'baseApp',
 ]
 
@@ -50,7 +50,7 @@ THIRDPARTY_APPS = [
 ]
 
 
-INSTALLED_APPS += CREATED_APPS + THIRDPARTY_APPS
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRDPARTY_APPS
 
 
 MIDDLEWARE = [
@@ -90,10 +90,10 @@ WSGI_APPLICATION = 'ExploreProject.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "explore_project",
-        "USER": "postgres",
-        "PASSWORD":"root",
-        "HOST": "localhost",
+        "NAME": config('DB_NAME'),
+        "USER": config('DB_USER'),
+        "PASSWORD":config('DB_PASSWORD'),
+        "HOST": config('DB_HOST'),
     }
 }
 

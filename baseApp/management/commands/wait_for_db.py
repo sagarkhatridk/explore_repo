@@ -1,6 +1,5 @@
 """
-Django command to wait for database to be available,
-and Run the server after database available.
+Django command to wait for database to be available.
 """
 import time
 
@@ -9,7 +8,6 @@ from psycopg2 import OperationalError as Psycopg2OpError
 from django.db.utils import OperationalError
 from django.core.management.base import BaseCommand
 
-from django.core.management import call_command
 
 class Command(BaseCommand):
     """Django command to wait for database."""
@@ -27,5 +25,3 @@ class Command(BaseCommand):
                 time.sleep(1)
 
         self.stdout.write(self.style.SUCCESS('Database Available!'))
-
-        call_command('runserver')
