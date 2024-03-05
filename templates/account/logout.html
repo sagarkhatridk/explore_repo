@@ -1,0 +1,21 @@
+{% extends 'account/base.html' %}
+{% block title %}Logout{% endblock title %}
+
+{% block content %}
+
+<div class="pt-4 pb-2">
+    <h5 class="card-title text-center pb-0 fs-4">Logout</h5>
+    <p class="text-center small">Are you sure you want to logout?
+  <form class="row g-3 needs-validation" action="{% url 'account_logout' %}" method="post">
+    {% csrf_token %}
+
+
+    <div class="col-12">
+      <button class="btn btn-danger w-100" type="submit">Logout</button>
+    </div>
+    <div class="col-12">
+      <p class="small mb-0">Don't want to Logout? <a href="{% url 'home_view' %}">Home</a></p>
+    </div>
+  </form>
+
+{% endblock content %}
