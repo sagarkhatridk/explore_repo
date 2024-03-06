@@ -28,6 +28,7 @@ urlpatterns = [
 
     # all-auth
     path('accounts/', include('allauth.urls')),
+    path('users/', include('users.urls')),
 
 ]
 
